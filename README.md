@@ -48,8 +48,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout parent repo
         uses: actions/checkout@v2
+        with:
+          repository: khromov/color-of-the-day
+      - name: Checkout current repo
+        uses: actions/checkout@v4
+        with:
+          path: colors
+      - name: Add pantone-numbers.json
+        run: cp colors/pantone-numbers.json src/lib/pantone-numbers.json
       - name: Publish Docker Image
         uses: matootie/github-docker@v3.1.0
         with:
