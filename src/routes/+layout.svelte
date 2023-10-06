@@ -6,9 +6,7 @@
 </script>
 
 <svelte:head>
-    <title>
-        Color of the Day - Daily color inspiration
-    </title>
+	<title>Color of the Day - Daily color inspiration</title>
 </svelte:head>
 
 <Modals>

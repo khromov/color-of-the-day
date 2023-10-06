@@ -120,11 +120,11 @@
 		margin: 0;
 	}
 
-    section.meta-container h2 {
-        font-size: 4vw;
-        font-weight: 700;
-        margin: 0;
-    }
+	section.meta-container h2 {
+		font-size: 4vw;
+		font-weight: 700;
+		margin: 0;
+	}
 
 	section.meta-container h1 {
 		font-size: 4.5vw;
