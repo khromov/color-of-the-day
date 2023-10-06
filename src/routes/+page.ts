@@ -31,7 +31,7 @@ const getColorForToday = (usePantones = false) => {
 
 	// Debug
 	// const randomIndex = Math.floor(Math.random() * colors.length);
-    // return colors[randomIndex];
+	// return colors[randomIndex];
 
 	// Generate a seed based on the number of days since October 6, 2023
 	function generateDaySeed(today: Date): number {
@@ -56,7 +56,7 @@ export const load: PageLoad = () => {
 	const usePantones = Object.keys(pantones).length > 0;
 
 	const color = getColorForToday(usePantones);
-	
+
 	const colorMeta = tinycolor(color.hex);
 
 	console.log('Got color', color);
