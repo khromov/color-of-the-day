@@ -8,18 +8,23 @@
 
 	import { openModal } from 'svelte-modals';
 	import Modal from '$lib/components/HelpModal.svelte';
+	import focused from '$lib/actions/focused';
 
 	export let data;
 
 	let cron: Cron | undefined;
 
 	let initialFadeInTimer: ReturnType<typeof setTimeout> | undefined;
-	let show = true; // Debug
+	let show = false;
 
 	onMount(() => {
 		cron = new Cron('0 0 * * * *', async () => {
 			console.log(new Date().toLocaleTimeString(), 'Reloading color');
-			await invalidateAll();
+			try {
+				await invalidateAll();
+			} catch (e) {
+				console.error(e);
+			}
 		});
 	});
 
@@ -40,9 +45,22 @@
 	const onOpenModal = () => {
 		openModal(Modal);
 	};
+
+	const onFocused = async () => {
+		console.log('Focused, reloading color!');
+		try {
+			await invalidateAll();
+		} catch (e) {
+			console.error(e);
+		}
+	};
 </script>
 
-<main style="--daily-color: {data.color.hex};" class:lightColor={data.lightColor}>
+<main
+	use:focused={onFocused}
+	style="--daily-color: {data.color.hex};"
+	class:lightColor={data.lightColor}
+>
 	{#if show}
 		<section class="frame" in:fade>
 			<section class="content">

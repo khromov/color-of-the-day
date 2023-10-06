@@ -54,6 +54,8 @@ export const load: PageLoad = () => {
 	const color = getColorForToday(usePantones);
 	const colorMeta = tinycolor(color.hex);
 
+	console.log('Got color', color);
+
 	return {
 		date: new Date().toLocaleDateString('en-US', {
 			month: 'long',
