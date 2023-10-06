@@ -133,7 +133,7 @@
 
 	.icon {
 		cursor: pointer;
-		width: 32px;
-		height: 32px;
+		width: 3vw;
+		height: 3vw;
 	}
 </style>
