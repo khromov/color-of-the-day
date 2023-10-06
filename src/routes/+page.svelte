@@ -30,7 +30,7 @@
 
 	initialFadeInTimer = setTimeout(() => {
 		show = true;
-	}, 750);
+	}, 500);
 
 	onDestroy(() => {
 		if (cron?.isRunning()) {
