@@ -35,7 +35,7 @@ const getColorForToday = (usePantones = false) => {
 
 	// Generate a seed based on the number of days since October 6, 2023
 	function generateDaySeed(today: Date): number {
-		const startDate = new Date(Date.UTC(2023, 9, 6)); // Month is 0-indexed, so 9 means October
+		const startDate = new Date(2023, 9, 6); // Month is 0-indexed, so 9 means October
 		const difference = today.getTime() - startDate.getTime();
 		return Math.floor(difference / (1000 * 60 * 60 * 24));
 	}
