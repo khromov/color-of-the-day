@@ -17,7 +17,7 @@
 	let show = true; // Debug
 
 	onMount(() => {
-		cron = new Cron('0 * * * * *', async () => {
+		cron = new Cron('0 0 * * * *', async () => {
 			console.log(new Date().toLocaleTimeString(), 'Reloading color');
 			await invalidateAll();
 		});

@@ -28,7 +28,6 @@ const convertPantonesFormat = (pantones: { [key: string]: { hex: string; name: s
 
 const getColorForToday = (usePantones = false) => {
 	const colors = usePantones ? convertPantonesFormat(pantones) : colorNameList;
-	console.log(colors);
 
 	// Generate a seed based on the number of days since October 6, 2023
 	function generateDaySeed(today: Date): number {
