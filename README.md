@@ -2,6 +2,12 @@
 
 Get inspired with a new color every day.
 
+## Live URL
+
+Visit the live site at https://color-of-the-day.khromov.se/
+
+![Screenshot](/.github/screenshot.png)
+
 ## Running locally
 
 ```bash
