@@ -7,7 +7,7 @@
 
 <svelte:head>
     <title>
-        Color of the Day
+        Color of the Day - Daily color inspiration
     </title>
 </svelte:head>
 
