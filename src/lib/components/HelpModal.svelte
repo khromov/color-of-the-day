@@ -22,6 +22,9 @@
 					Favicon: <a target="_blank" href="https://icons8.com/icon/22318/rgb-color-wheel">rgb</a>
 					icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 				</p>
+				<p>
+					The source code for this project can be found <a target="_blank" href="https://github.com/khromov/color-of-the-day">on GitHub!</a>
+				</p>
 			</div>
 			<div class="actions">
 				<button on:click={closeModal}>Awesome!</button>
