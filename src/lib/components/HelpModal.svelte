@@ -9,7 +9,7 @@
 			<h2>Color of the Day</h2>
 			<div>
                 <p>
-                    A new color every day. Put this page as your home page or on your smart screen to be inspired with a new color every day.
+                    A new color every day! Put this page as your home page or on your smart screen and get inspired!
                 </p>
                 <p>
                     Color names come from the "best" list of the <a target="_blank" href="https://www.npmjs.com/package/color-name-list">color&#8209;name&#8209;list</a> package.

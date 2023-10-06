@@ -91,7 +91,7 @@
 		border: 1vw solid white;
 		width: 100%;
 		height: 100%;
-		padding: 1.75vw 2.5vw;
+		padding: 1.8vw 2.6vw;
 
 		display: flex;
 		flex-direction: column;
@@ -100,8 +100,8 @@
 
 	section.meta-container {
 		font-family: 'Comfortaa', sans-serif;
-		margin-top: auto; /* Push to the bottom */
-		align-self: flex-end; /* Align to the right */
+		margin-top: auto;
+		align-self: flex-end;
 		text-align: right;
 	}
 
