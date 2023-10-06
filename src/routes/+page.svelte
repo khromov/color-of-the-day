@@ -39,7 +39,7 @@
 
 	const onOpenModal = () => {
 		openModal(Modal);
-	}
+	};
 </script>
 
 <main style="--daily-color: {data.color.hex};" class:lightColor={data.lightColor}>
@@ -51,7 +51,13 @@
 						{data.date}
 					</h2>
 					<div class="info">
-						<div class="icon" on:click={onOpenModal} on:keypress={onOpenModal} role="button" tabindex="0">
+						<div
+							class="icon"
+							on:click={onOpenModal}
+							on:keypress={onOpenModal}
+							role="button"
+							tabindex="0"
+						>
 							<FaInfoCircle />
 						</div>
 					</div>
@@ -59,6 +65,9 @@
 
 				<section class="meta-container">
 					<h3>{data.color.hex}</h3>
+					{#if data.color?.pantone}
+						<h2>{data.color?.pantone}</h2>
+					{/if}
 					<h1>{data.color.name}</h1>
 				</section>
 			</section>
@@ -110,6 +119,12 @@
 		font-weight: 400;
 		margin: 0;
 	}
+
+    section.meta-container h2 {
+        font-size: 4vw;
+        font-weight: 700;
+        margin: 0;
+    }
 
 	section.meta-container h1 {
 		font-size: 4.5vw;

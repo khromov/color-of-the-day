@@ -1,38 +1,28 @@
-# create-svelte
+# Color of the Day
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Get inspired with a new color every day.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Running locally
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
+nvm use
+npm i
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+Then go to: http://localhost:5173
 
-To create a production version of your app:
+## Using Pantone colors
 
-```bash
-npm run build
+By default this project uses colors from the [color-name-list](https://www.npmjs.com/package/color-name-list) "best" colors. Pantone colors are not available due to licensing restrictions. If you have a `pantone-numbers.json` file with a list of Pantone colors in the format: 
+
+```json
+{
+    "12-3456": {
+      "name": "color-name-kebab-case",
+      "hex": "cccccc" 
+    }
+}
 ```
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Then you can edit the file `src/lib/pantone-numbers.json` and add them. Once you build this app the Pantone colors will be used instead of the default color list. 
