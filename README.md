@@ -32,3 +32,29 @@ By default this project uses colors from the [color-name-list](https://www.npmjs
 ```
 
 Then you can edit the file `src/lib/pantone-numbers.json` and add them. Once you build this app the Pantone colors will be used instead of the default color list.
+
+Let's say you have a separate repo with the `pantone-numbers.json` file. Create a GitHub workflow that looks like this in `.github/workflows/build.yml`:
+
+```yaml
+name: build
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Publish Docker Image
+        uses: matootie/github-docker@v3.1.0
+        with:
+          accessToken: ${{ github.token }}
+          containerRegistry: true
+```
+
+Now you will have a Docker image with your Pantone colors.

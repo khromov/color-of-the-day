@@ -96,8 +96,8 @@
 <style>
 	main {
 		background-color: var(--daily-color);
-		height: 100vh;
-		width: 100vw;
+		height: 100dvh;
+		width: 100dvw;
 	}
 
 	main {
@@ -109,8 +109,8 @@
 	}
 
 	section.frame {
-		width: 100vw;
-		height: 100vh;
+		width: 100dvw;
+		height: 100dvh;
 		padding: 2.7vw;
 	}
 
