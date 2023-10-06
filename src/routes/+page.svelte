@@ -51,7 +51,7 @@
 						{data.date}
 					</h2>
 					<div class="info">
-						<div class="icon" on:click={onOpenModal}>
+						<div class="icon" on:click={onOpenModal} on:keypress={onOpenModal} role="button" tabindex="0">
 							<FaInfoCircle />
 						</div>
 					</div>
