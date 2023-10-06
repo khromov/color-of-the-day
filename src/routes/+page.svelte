@@ -3,12 +3,18 @@
 	import { Cron } from 'croner';
 	import { onDestroy, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+
+	import FaInfoCircle from 'svelte-icons/fa/FaInfoCircle.svelte';
+
+	import { openModal } from 'svelte-modals';
+	import Modal from '$lib/components/HelpModal.svelte';
+
 	export let data;
 
 	let cron: Cron | undefined;
 
 	let initialFadeInTimer: ReturnType<typeof setTimeout> | undefined;
-	let show = false;
+	let show = true; // Debug
 
 	onMount(() => {
 		cron = new Cron('0 * * * * *', async () => {
@@ -30,19 +36,28 @@
 			clearTimeout(initialFadeInTimer);
 		}
 	});
+
+	const onOpenModal = () => {
+		openModal(Modal);
+	}
 </script>
 
 <main style="--daily-color: {data.color.hex};" class:lightColor={data.lightColor}>
 	{#if show}
 		<section class="frame" in:fade>
 			<section class="content">
-				<section class="date">
+				<section class="date-container">
 					<h2 class="date">
 						{data.date}
 					</h2>
+					<div class="info">
+						<div class="icon" on:click={onOpenModal}>
+							<FaInfoCircle />
+						</div>
+					</div>
 				</section>
 
-				<section class="meta">
+				<section class="meta-container">
 					<h3>{data.color.hex}</h3>
 					<h1>{data.color.name}</h1>
 				</section>
@@ -76,27 +91,27 @@
 		border: 1vw solid white;
 		width: 100%;
 		height: 100%;
-		padding: 1.5vw 1.7vw;
+		padding: 1.75vw 2.5vw;
 
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 	}
 
-	section.meta {
+	section.meta-container {
 		font-family: 'Comfortaa', sans-serif;
 		margin-top: auto; /* Push to the bottom */
 		align-self: flex-end; /* Align to the right */
 		text-align: right;
 	}
 
-	section.meta h3 {
+	section.meta-container h3 {
 		font-size: 2.5vw;
 		font-weight: 400;
 		margin: 0;
 	}
 
-	section.meta h1 {
+	section.meta-container h1 {
 		font-size: 4.5vw;
 		font-weight: 700;
 		margin: 0;
@@ -106,8 +121,19 @@
 		border-color: black;
 	}
 
+	section.date-container {
+		display: flex;
+		justify-content: space-between;
+	}
+
 	h2.date {
 		font-family: 'Comfortaa', sans-serif;
 		font-size: 3vw;
+	}
+
+	.icon {
+		cursor: pointer;
+		width: 32px;
+		height: 32px;
 	}
 </style>
