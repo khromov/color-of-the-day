@@ -1,10 +1,10 @@
 import colorNameList from 'color-name-list/dist/colornames.bestof.json';
-import type { PageServerLoad } from './$types';
+import type { PageLoad } from './$types';
 import tinycolor from 'tinycolor2';
 
-export const ssr = true;
+export const ssr = false;
 
-export const load: PageServerLoad = ({ params }) => {
+export const load: PageLoad = () => {
 	const color = colorNameList[Math.floor(Math.random() * colorNameList.length)];
 	const colorMeta = tinycolor(color.hex);
 
