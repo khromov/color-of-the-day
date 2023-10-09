@@ -6,6 +6,12 @@ import shuffle from 'fast-shuffle';
 
 export const ssr = false;
 
+type Color = {
+	name: string,
+	hex: string;
+	pantone?: string 
+}
+
 const kebabToTitleCase = (str: string) => {
 	const words = str.split('-');
 
@@ -67,7 +73,7 @@ export const load: PageLoad = () => {
 			day: 'numeric',
 			year: 'numeric'
 		}),
-		color,
+		color: color as Color,
 		lightColor: colorMeta.isLight()
 	};
 };

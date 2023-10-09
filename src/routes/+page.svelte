@@ -9,6 +9,7 @@
 	import { openModal } from 'svelte-modals';
 	import Modal from '$lib/components/HelpModal.svelte';
 	import focused from '$lib/actions/focused';
+	import toast from 'svelte-french-toast';
 
 	export let data;
 
@@ -54,8 +55,31 @@
 			console.error(e);
 		}
 	};
+
+	const copyToClipboard = async (text: string) => {
+		try {
+			await navigator.clipboard.writeText(text);
+			toast.success('Copied to clipboard!');
+		} catch (e) {
+			console.error(e);
+			toast.error('Failed to copy to clipboard!');
+		}
+	};
+
+	const onCopyPasteHex = async () => {
+		await copyToClipboard(data.color.hex);
+	};
+
+	const onCopyPastePantone = async () => {
+		await copyToClipboard(data.color?.pantone || '');
+	};
+
+	const onCopyColorName = async () => {
+		await copyToClipboard(data.color.name);
+	};
 </script>
 
+<!-- svelte-ignore a11y-no-noninteractive-element-to-interactive-role -->
 <main
 	use:focused={onFocused}
 	style="--daily-color: {data.color.hex};"
@@ -82,11 +106,25 @@
 				</section>
 
 				<section class="meta-container">
-					<h3>{data.color.hex}</h3>
+					<h3 on:click={onCopyPasteHex} on:keypress={onCopyPasteHex} role="button" tabindex="0">
+						{data.color.hex}
+					</h3>
 					{#if data.color?.pantone}
-						<h2>{data.color?.pantone}</h2>
+						<h2
+							on:click={onCopyPastePantone}
+							on:keypress={onCopyPastePantone}
+							role="button"
+							tabindex="0"
+						>
+							{data.color?.pantone}
+						</h2>
 					{/if}
-					<h1>{data.color.name}</h1>
+					<h1
+						on:click={onCopyColorName}
+						on:keypress={onCopyColorName}
+						role="button"
+						tabindex="0"
+					>{data.color.name}</h1>
 				</section>
 			</section>
 		</section>
@@ -136,18 +174,21 @@
 		font-size: 2.5vw;
 		font-weight: 400;
 		margin: 0;
+		cursor: pointer;
 	}
 
 	section.meta-container h2 {
 		font-size: 4vw;
 		font-weight: 700;
 		margin: 0;
+		cursor: pointer;
 	}
 
 	section.meta-container h1 {
 		font-size: 4.5vw;
 		font-weight: 700;
 		margin: 0;
+		cursor: pointer;
 	}
 
 	main.lightColor section.content {

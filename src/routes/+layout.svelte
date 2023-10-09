@@ -3,11 +3,14 @@
 	import '@fontsource/comfortaa/400.css';
 	import '@fontsource/comfortaa/700.css';
 	import { Modals, closeModal } from 'svelte-modals';
+	import toast, { Toaster } from 'svelte-french-toast';
 </script>
 
 <svelte:head>
 	<title>Color of the Day - Daily color inspiration</title>
 </svelte:head>
+
+<Toaster />
 
 <Modals>
 	<div slot="backdrop" class="backdrop" on:click={closeModal} />
